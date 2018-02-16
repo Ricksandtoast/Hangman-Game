@@ -13,31 +13,70 @@
 </head>
 
 <body>
+<div class ="background-image">
+    <div class = "wrapper">
+
     <h1>Lets play Hangman</h1>
+    <audio id = "Mario-Theme">
+        <source src = "assets/Audio/Mario_Music.mp3">
+        </audio>
+    <audio id = "Game-Over">
+        <source src = "assets/Audio/Game_Over.mp3">
+        </audio>
     <div class="btn-group" role="group" aria-label="...">
-        <button onclick="startGame.showGameText(); startGame.playGame() " type="button" class="btn btn-default">Play game</button>
+        <button onclick= "startGame.showGameText(); startGame.playGame(); x " type="button" class="btn btn-default">Play game</button>
     </div>
     <div id="gameText">
         Pick a letter
+    </div>
+    <div id ="wins">
+      wins: 
+    </div>
+    <div id ="losses">
+      losses: 
+    </div>
+    <div id = spaceForLetters>
+          
     </div>
     <form id="form" onsubmit="return false;">
         <div class="form-group">
             <label for="exampleInputEmail1">Guess</label>
             <input type="text" id="guess" class="form-control">
-            <!--      why won't it take two inputs?     -->
-            <input type="submit" onclick="startGame.takeGuess() ; startGame.validateGuess(); startGame.showGuessesLeft(); startGame.showLettersGuessed()" />
+            <input type="submit" onclick="startGame.takeGuess() ; startGame.validateGuess(); startGame.showGuessesLeft(); startGame.showLettersGuessed(); startGame.replaceLineWithLetter(); startGame.winsAndLosses() " />
         </div>
+    </form>
     <div id = "guessesLeft">
       
     </div>
     <div id = "lettersGuessed">
-      about to make a fucking letters list
+      Letters Guessed: 
     </div>
-        <script>
-        {
-            //startGame.validateGuess(guess);
-        }
-        </script>
+
+<!-- end of wrapper  -->
+    </div>
+</div>
 </body>
 
 </html>
+<style>
+.wrapper
+{
+    position:relative;
+    height: 900px;
+    width: 960px;
+    
+}
+.background-image
+{
+    position:relative;
+      /*why does this only work in my html file?*/
+    background-image: url("assets/images/super_mario.png");
+    min-width:100%;
+    top:0;
+    left:0;
+    min-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>

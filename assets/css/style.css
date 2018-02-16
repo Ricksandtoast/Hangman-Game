@@ -1,5 +1,37 @@
+body,html
+{
+	height:100%;
+	margin:0;
+	min-width:100%;
+}
 #gameText
 {
   font-size: 20px;
   display: none;
+}
+#spaceForLetters li
+{
+	display:inline;
+}
+#lettersGuessed
+{
+	color:red;
+}
+#lettersGuessed li
+{
+	display:inline;
+}
+#losses li
+{
+	display: inline;
+}
+
+
+form
+{
+	width: 200px;
+}
+li
+{
+	color:red;
 }
