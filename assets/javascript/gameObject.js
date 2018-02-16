@@ -4,7 +4,7 @@
 var startGame =
 {
    guess: null, 
-   randomWordsArray: ["goomba","mushroom","mario", "boo","koopa","bowser"],
+   randomWordsArray: ["luigi","star","goomba","mushroom","mario", "boo","koopa","bowser"],
    randomWord: null,
    searchCount: 0,
    guessesLeft: 7,
@@ -21,7 +21,7 @@ var startGame =
 
     //write variable to increase array size
     this.lostGame = false;
-    randomNum = Math.floor((Math.random()*5)),
+    randomNum = Math.floor((Math.random()*7)),
     this.randomWord = this.randomWordsArray[randomNum];
     console.log(this.randomWord);
 
@@ -42,7 +42,11 @@ var startGame =
     }
 
   },  
-
+  guessReset: function()
+  {
+    this.guessesLeft = 7;
+    console.log(this.guessesLeft);
+  },
   //plays music
 
   //allows "select a letter" to display
@@ -68,7 +72,8 @@ var startGame =
   {
     //not sure why I made this??
     var guess = this.guess;
-   
+    this.guess = this.guess.toLowerCase();
+   console.log(this.guess);
     // if(guess === null)
     // {
     //   alert("start the game");
@@ -78,7 +83,7 @@ var startGame =
         alert("wrong guess again");
         this.guessesLeft --;
     }
-    if(this.randomWord.includes(guess))
+    if(this.randomWord.includes(this.guess))
     {
 
       alert("Correct!");
@@ -86,11 +91,12 @@ var startGame =
       return true;
 
     }
-     if(!this.randomWord.includes(guess))
+     if(!this.randomWord.includes(this.guess))
      {
 
        alert("wrong guess again");
        this.guessesLeft --;
+       console.log(this.guessesLeft);
        return false;
 
      }
@@ -120,8 +126,8 @@ var startGame =
      
       var music = document.getElementById("Game-Over");
       music.play();
-      losses++;
-
+      this.losses++;
+      
       var node = document.createElement("LI");
       var textNode = document.createTextNode(this.losses);
       node.appendChild(textNode);

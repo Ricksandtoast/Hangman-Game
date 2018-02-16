@@ -15,8 +15,13 @@
 <body>
 <div class ="background-image">
     <div class = "wrapper">
-
-    <h1>Lets play Hangman</h1>
+    <div class = "mario-text" >
+       <img src = "assets/images/Super-Mario-Logo.jpg">
+    </div>
+    <div class = "full-game">
+    <div class = "lets-play">
+        <h1>Hangman</h1>
+    </div>
     <audio id = "Mario-Theme">
         <source src = "assets/Audio/Mario_Music.mp3">
         </audio>
@@ -24,7 +29,7 @@
         <source src = "assets/Audio/Game_Over.mp3">
         </audio>
     <div class="btn-group" role="group" aria-label="...">
-        <button onclick= "startGame.showGameText(); startGame.playGame(); x " type="button" class="btn btn-default">Play game</button>
+        <button onclick= "startGame.showGameText(); startGame.playGame(); startGame.guessReset(); startGame.showGuessesLeft() " type="button" class="btn btn-default">Play game</button>
     </div>
     <div id="gameText">
         Pick a letter
@@ -41,8 +46,10 @@
     <form id="form" onsubmit="return false;">
         <div class="form-group">
             <label for="exampleInputEmail1">Guess</label>
-            <input type="text" id="guess" class="form-control">
-            <input type="submit" onclick="startGame.takeGuess() ; startGame.validateGuess(); startGame.showGuessesLeft(); startGame.showLettersGuessed(); startGame.replaceLineWithLetter(); startGame.winsAndLosses() " />
+            <input type="text" id= "guess" class="form-control">
+            <div class ="submit">
+            <input type="submit" onclick="startGame.takeGuess() ; startGame.validateGuess(); startGame.showLettersGuessed(); startGame.replaceLineWithLetter(); startGame.winsAndLosses(); startGame.showGuessesLeft() " />
+            </div>
         </div>
     </form>
     <div id = "guessesLeft">
@@ -51,6 +58,9 @@
     <div id = "lettersGuessed">
       Letters Guessed: 
     </div>
+    </div>
+    </div>
+   <!-- end of full-game -->
 
 <!-- end of wrapper  -->
     </div>
@@ -61,13 +71,15 @@
 <style>
 .wrapper
 {
+
     position:relative;
-    height: 900px;
-    width: 960px;
+    height: 100%;
+    width: 860px;
     
 }
 .background-image
 {
+    /*whydo i need negative margin top*/
     position:relative;
       /*why does this only work in my html file?*/
     background-image: url("assets/images/super_mario.png");
@@ -78,5 +90,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    opacity:0.8;
 }
 </style>
